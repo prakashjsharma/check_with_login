@@ -28,22 +28,33 @@ namespace check_with_login
         }
         private void binddata()
         {
-            SqlCommand command = new SqlCommand("select * from Maker", connection);
-            SqlDataAdapter d = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            d.Fill(dt);
-            grdData.DataSource = dt;
-            grdData.DataBind();
+            using (SqlConnection con = DBHelper.GetConnection())
+            {
+                SqlCommand command = new SqlCommand(
+                @"SELECT M.EmpId, M.EmpCode, M.EmpName, M.PhoneNo, M.Email, M.Dob,
+                 D.deptname, M.Status, M.Reason
+          FROM Maker M
+          INNER JOIN department D ON D.deptid = M.deptid", con);
+
+                SqlDataAdapter d = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                d.Fill(dt);
+
+                grdData.DataSource = dt;
+                grdData.DataBind();
+            }
         }
+
         private void bindddl()
         {
-            SqlCommand command = new SqlCommand("select deptname from department", connection);
+            SqlCommand command = new SqlCommand("select deptid, deptname from department", connection);
             SqlDataAdapter d = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             d.Fill(dt);
             ddldept.DataSource = dt;
             ddldept.DataTextField = "deptname";
-            ddldept.DataValueField = "deptname";
+            ddldept.DataValueField = "deptid";
+            ddldept.Items.Insert(0, new ListItem("-- Select Department --", "0"));
             ddldept.DataBind();
 
         }
@@ -71,7 +82,7 @@ namespace check_with_login
                     command.Parameters.AddWithValue("@status", status);
                     command.Parameters.AddWithValue("@reason", reason);
                     command.Parameters.AddWithValue("@Id", Convert.ToInt32(EmpID));
-
+                    command.Parameters.AddWithValue("@deptname", ddldept.SelectedValue);
                     con.Open();
                     command.ExecuteNonQuery();
                 }
@@ -86,7 +97,8 @@ namespace check_with_login
                 CheckBox chk = (CheckBox)row.FindControl("select");
                 if (chk != null && chk.Checked)
                 {
-                    save(row.Cells[1].Text, "Reject", txtreason.Text);
+                    int empId = Convert.ToInt32(grdData.DataKeys[row.RowIndex].Value);
+                    save(empId.ToString(), "Reject", txtreason.Text);
                 }
             }
         }
@@ -104,20 +116,24 @@ namespace check_with_login
         {
             using (SqlConnection con = DBHelper.GetConnection())
             {
-                using (SqlCommand cmd = new SqlCommand(
-                    "SELECT * FROM Maker WHERE deptname=@dept", con))
-                {
-                    cmd.Parameters.AddWithValue("@dept", ddldept.SelectedValue);
+                SqlCommand cmd = new SqlCommand(
+                @"SELECT M.EmpId, M.EmpCode, M.EmpName, M.PhoneNo, M.Email, M.Dob,
+                 D.deptname, M.Status, M.Reason
+          FROM Maker M
+          INNER JOIN department D ON D.deptid = M.deptid
+          WHERE M.deptid = @deptid", con);
 
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                cmd.Parameters.AddWithValue("@deptid", ddldept.SelectedValue);
 
-                    grdData.DataSource = dt;
-                    grdData.DataBind();
-                }
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                grdData.DataSource = dt;
+                grdData.DataBind();
             }
         }
+
 
     }
 }

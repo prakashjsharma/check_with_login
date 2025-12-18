@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [check_with_login]    Script Date: 18-12-2025 20:45:38 ******/
+/****** Object:  Database [check_with_login]    Script Date: 18-12-2025 21:30:17 ******/
 CREATE DATABASE [check_with_login]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -80,7 +80,7 @@ ALTER DATABASE [check_with_login] SET QUERY_STORE = OFF
 GO
 USE [check_with_login]
 GO
-/****** Object:  Table [dbo].[department]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  Table [dbo].[department]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -94,7 +94,7 @@ CREATE TABLE [dbo].[department](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Login_Details]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  Table [dbo].[Login_Details]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -106,7 +106,7 @@ CREATE TABLE [dbo].[Login_Details](
 	[Id] [int] IDENTITY(1,1) NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Logins]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  Table [dbo].[Logins]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -122,7 +122,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Maker]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  Table [dbo].[Maker]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -143,7 +143,7 @@ CREATE TABLE [dbo].[Maker](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MakerInfo]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  Table [dbo].[MakerInfo]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -164,7 +164,7 @@ CREATE TABLE [dbo].[MakerInfo](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_login]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  Table [dbo].[tbl_login]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -179,7 +179,7 @@ UNIQUE NONCLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_roles]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  Table [dbo].[tbl_roles]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -198,7 +198,7 @@ UNIQUE NONCLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  StoredProcedure [dbo].[GetMakerInfo]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  StoredProcedure [dbo].[GetMakerInfo]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -217,7 +217,7 @@ end
 -----------------------------------------------------------------------------------
 
 GO
-/****** Object:  StoredProcedure [dbo].[GridView]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  StoredProcedure [dbo].[GridView]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -232,7 +232,7 @@ INNER JOIN department D ON D.DeptID = M.deptID
 end
 -----------------------------------------------------------------------------------
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Getall]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Getall]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -251,7 +251,7 @@ Password=@Password
 end
 -----------------------------------------------------------------------------------
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertMakerById]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertMakerById]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -286,7 +286,7 @@ end
 
 -----------------------------------------------------------------------------------
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Login]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  StoredProcedure [dbo].[sp_Login]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -321,7 +321,7 @@ END;
 
 -----------------------------------------------------------------------------------
 GO
-/****** Object:  StoredProcedure [dbo].[SP_MakerSave]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  StoredProcedure [dbo].[SP_MakerSave]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -345,7 +345,7 @@ end
 
 -----------------------------------------------------------------------------------
 GO
-/****** Object:  StoredProcedure [dbo].[Update_Details]    Script Date: 18-12-2025 20:45:39 ******/
+/****** Object:  StoredProcedure [dbo].[Update_Details]    Script Date: 18-12-2025 21:30:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -359,7 +359,7 @@ CREATE procedure [dbo].[Update_Details](
 )
 as 
 begin
-update Maker set [status]=@status,reason=@reason,deptname=@deptname where EmpId=@Id;
+update Maker set [status]=@status, reason=@reason, deptID=@deptname where EmpId=@Id;
 end
 GO
 USE [master]

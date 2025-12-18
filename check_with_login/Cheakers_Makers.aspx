@@ -32,7 +32,8 @@
                     </div>
 
                     <asp:GridView ID="grdData" runat="server"
-                        CssClass="table table-bordered table-hover">
+    DataKeyNames="EmpId"
+    CssClass="table table-bordered">
                         <Columns>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
