@@ -121,6 +121,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="fullCode.js" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="Maker.aspx" />
