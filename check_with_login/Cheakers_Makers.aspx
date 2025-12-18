@@ -16,7 +16,7 @@
             <div class="card shadow">
                 <div class="card-header bg-warning">
                     <h4>Checker – Approval Screen</h4>
-                </div>
+                </div> 
 
                 <div class="card-body">
                     <div class="row mb-3">
